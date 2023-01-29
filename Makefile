@@ -19,11 +19,9 @@ ifeq ($(OS), Windows_NT)
 	JBYLC 	= jbylc.exe
 	JBYLR 	= jbylr.exe
 else
-	JBYLC 	= jbylc
-	JBYLR 	= jbylr
+	JBYLC 	= jbylc.bin
+	JBYLR 	= jbylr.bin
 endif
-JBYLC 	= jbylc$(FT)
-JBYLR 	= jbylr$(FT)
 
 default :
 	$(MAKE) $(JBYLC)
@@ -47,10 +45,6 @@ ifeq ($(OS), Windows_NT)
 	if exist $(JBYLC) del $(JBYLC)
 	if exist $(JBYLR) del $(JBYLR)
 else
-	if [ -e $(JBYLC) ]; then
-		rm $(JBYLC)
-	fi
-	if [ -e $(JBYLR) ]; then
-		rm $(JBYLR)
-	fi
+	if [ -e $(JBYLC) ]; then rm $(JBYLC); fi
+	if [ -e $(JBYLR) ]; then rm $(JBYLR); fi
 endif
