@@ -87,6 +87,53 @@ int main(int argc, char const *argv[])
             var--;
             break;
 
+        case IBC_POP_A:
+            var = pop_stack(&stackA);
+            break;
+        
+        case IBC_POP_B:
+            var = pop_stack(&stackB);
+            break;
+        
+        case IBC_POP_C:
+            var = pop_stack(&stackC);
+            break;
+        
+        case IBC_PUT_CHAR:
+            putchar(var);
+            break;
+        
+        case IBC_PUT_STRING: {
+            int c = pop_stack(&stackB);
+            while (c != '\0') {
+                putchar(c);
+                c = pop_stack(&stackB);
+            }
+            break;
+        }
+            
+        case IBC_DEBUG:{
+            int i;
+
+            puts("---- DEBUG ----");
+            
+            puts("Stack A:");
+            for (i = 0; i < allocad_stack(&stackA); i++)
+                printf("    [%d] %d\n", i, stackA.data[i]);
+            puts("Stack B:");
+            for (i = 0; i < allocad_stack(&stackB); i++)
+                printf("    [%d] %d\n", i, stackB.data[i]);
+            puts("Stack C:");
+            for (i = 0; i < allocad_stack(&stackC); i++)
+                printf("    [%d] %d\n", i, stackC.data[i]);
+            printf("Var: %d\n", var);
+            
+            puts("---- End of DEBUG ----");
+
+
+            break;
+        }
+
         default:
             error(-4);
         }

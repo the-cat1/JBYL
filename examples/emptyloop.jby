@@ -2,5 +2,5 @@
   按 Ctrl+C 退出
 #
 
-a       # 把 0x02 PUSH_A ，下一个指令又是 PUSH_A ，产生循环 #
+a       # 把 0x02 PUSH_A，下一个指令是 0x02(PUSH_A)，产生循环 #
 ++      # var = 2 #

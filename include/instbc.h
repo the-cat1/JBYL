@@ -14,5 +14,11 @@
 #define IBC_PUSH_C      0x04
 #define IBC_ADD_1       0x05
 #define IBC_SUB_1       0x06
+#define IBC_POP_A       0x07
+#define IBC_POP_B       0x08
+#define IBC_POP_C       0x09
+#define IBC_PUT_CHAR    0x0a
+#define IBC_PUT_STRING  0x0b
+#define IBC_DEBUG       0x0c
 
 #endif
