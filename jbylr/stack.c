@@ -1,7 +1,7 @@
 /* JBYL
  * 
  * jbylr/stack.c
- * 实现FIFO栈。
+ * 实现FILO栈。
  */
 
 #include <stdlib.h>
